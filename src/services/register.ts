@@ -1,16 +1,16 @@
-import axios from "axios";
+import api from "./api";
 
 const newRegister = async (name: string, email: string, password: string) => {
   try {
-    const resp = await axios.post("http://localhost:3333/users", {
+    const resp = await api.post("/users", {
       name,
       email,
       password,
     });
-    console.log(resp);
-    return resp;
-  } catch (error) {
-    console.log("deu pau",error);
+    return resp.data;
+  } catch (err) {
+    console.log("err.response: ", err.response);
+    return err.response.data;
   }
 };
 

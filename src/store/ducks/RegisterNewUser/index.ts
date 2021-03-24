@@ -2,10 +2,8 @@ import TasksTypes from "./types";
 console.log(TasksTypes.REQUESTING_DATA);
 const initialState = {
   isFetching: false,
-  videos: [],
-
+  response:"",
   error: "",
-  lastId:"",
 };
 
 export default function reducer(state = initialState, action) {
@@ -16,11 +14,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         isFetching: false,
-        videos: [...action.resp],//...state.videos,
-        lastId: action.lastId,
+        response: action.resp,
+        error: ""
       };
     case TasksTypes.FAILED_REQUEST:
-      return { ...state, error: action.resp, isFetching: false };
+      return { ...state, error: action.error, isFetching: false, response:"" };
     default:
       return state;
   }
