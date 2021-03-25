@@ -1,3 +1,4 @@
+import React from 'react';
 import Routes from "./routes";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";

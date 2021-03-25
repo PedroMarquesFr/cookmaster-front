@@ -1,3 +1,4 @@
+import { RegisterNewUser } from "../../../Types/interfaces";
 import TasksTypes from "./types";
 console.log(TasksTypes.REQUESTING_DATA);
 const initialState = {
@@ -6,7 +7,7 @@ const initialState = {
   error: "",
 };
 
-export default function reducer(state = initialState, action) {
+export default function reducer(state = initialState, action):RegisterNewUser {
   switch (action.type) {
     case TasksTypes.REQUESTING_DATA:
       return { ...state, isFetching: true };
